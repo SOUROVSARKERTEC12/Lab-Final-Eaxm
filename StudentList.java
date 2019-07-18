@@ -6,10 +6,10 @@ public class StudentList {
     public static void main(String[] args) {
 
 //		Check arguments
-        if (args[0].equals("a")) {
+        if (args[0].equals(Constants.ShowAll)) {
             System.out.println("Loading data ...");
             try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Constants.TEXT_FILE_NAME)));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Constants.StudentList)));
                 String string = bufferedReader.readLine();
                 String split[] = string.split(",");
                 for (String printList : split) {
@@ -18,10 +18,10 @@ public class StudentList {
             } catch (Exception e) {
             }
             System.out.println("Data Loaded.");
-        } else if (args[0].equals("r")) {
+        } else if (args[0].equals(Constants.ShowRandom)) {
             System.out.println("Loading data ...");
             try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Constants.TEXT_FILE_NAME)));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Constants.StudentList)));
                 String string = bufferedReader.readLine();
                 String split[] = string.split(",");
                 Random random = new Random();
@@ -30,10 +30,10 @@ public class StudentList {
             } catch (Exception e) {
             }
             System.out.println("Data Loaded.");
-        } else if (args[0].contains("+")) {
+        } else if (args[0].contains(Constants.AddEntry)) {
             System.out.println("Loading data ...");
             try {
-                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(Constants.TEXT_FILE_NAME, true));
+                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(Constants.StudentList, true));
                 String substring = args[0].substring(1);
                 Date date = new Date();
                 String dateTime = "dd/mm/yyyy-hh:mm:ss a";
@@ -45,10 +45,10 @@ public class StudentList {
             }
 
             System.out.println("Data Loaded.");
-        } else if (args[0].contains("?")) {
+        } else if (args[0].contains(Constants.FindEntry)) {
             System.out.println("Loading data ...");
             try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Constants.TEXT_FILE_NAME)));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Constants.StudentList)));
                 String readLine = bufferedReader.readLine();
                 String split[] = readLine.split(",");
                 boolean done = false;
@@ -62,10 +62,10 @@ public class StudentList {
             } catch (Exception e) {
             }
             System.out.println("Data Loaded.");
-        } else if (args[0].contains("c")) {
+        } else if (args[0].contains(Constants.ShowCount)) {
             System.out.println("Loading data ...");
             try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Constants.TEXT_FILE_NAME)));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Constants.StudentList)));
                 String readLine = bufferedReader.readLine();
                 char word[] = readLine.toCharArray();
                 boolean in_word = false;
@@ -85,10 +85,7 @@ public class StudentList {
             }
             System.out.println("Data Loaded.");
         }
-
-        else {
-
-        }
+        
     }
 
 }
