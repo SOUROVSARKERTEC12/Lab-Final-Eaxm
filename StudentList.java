@@ -25,8 +25,7 @@ public class StudentList {
                 String string = bufferedReader.readLine();
                 String split[] = string.split(",");
                 Random random = new Random();
-                int y = random.nextInt(4);
-                System.out.println(split[y]);
+                System.out.println(split[random.nextInt(4)]);
             } catch (Exception e) {
             }
             System.out.println("Data Loaded.");
@@ -34,12 +33,9 @@ public class StudentList {
             System.out.println("Loading data ...");
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(Constants.StudentList, true));
-                String substring = args[0].substring(1);
                 Date date = new Date();
-                String dateTime = "dd/mm/yyyy-hh:mm:ss a";
-                DateFormat dateFormat = new SimpleDateFormat(dateTime);
-                String format = dateFormat.format(date);
-                bufferedWriter.write(", " + substring +"\nList last updated on " + format);
+                DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy-hh:mm:ss a");
+                bufferedWriter.write(", " + args[0].substring(1) +"\nList last updated on " + dateFormat.format(date));
                 bufferedWriter.close();
             } catch (Exception e) {
             }
