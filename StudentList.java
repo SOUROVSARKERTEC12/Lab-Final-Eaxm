@@ -16,6 +16,7 @@ public class StudentList {
                     System.out.println(printList);
                 }
             } catch (Exception e) {
+                System.out.println("Excepton :"+e.toString());
             }
             System.out.println("Data Loaded.");
         } else if (args[0].equals(Constants.ShowRandom)) {
@@ -27,6 +28,7 @@ public class StudentList {
                 Random random = new Random();
                 System.out.println(split[random.nextInt(4)]);
             } catch (Exception e) {
+                System.out.println("Excepton :"+e.toString());
             }
             System.out.println("Data Loaded.");
         } else if (args[0].contains(Constants.AddEntry)) {
@@ -38,6 +40,7 @@ public class StudentList {
                 bufferedWriter.write(", " + args[0].substring(1) +"\nList last updated on " + dateFormat.format(date));
                 bufferedWriter.close();
             } catch (Exception e) {
+                System.out.println("Excepton :"+e.toString());
             }
 
             System.out.println("Data Loaded.");
@@ -56,6 +59,7 @@ public class StudentList {
                     }
                 }
             } catch (Exception e) {
+                System.out.println("Excepton :"+e.toString());
             }
             System.out.println("Data Loaded.");
         } else if (args[0].contains(Constants.ShowCount)) {
@@ -78,6 +82,7 @@ public class StudentList {
                 }
                 System.out.println(count + " word(s) found ");
             } catch (Exception e) {
+                System.out.println("Excepton :"+e.toString());
             }
             System.out.println("Data Loaded.");
         }
